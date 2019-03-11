@@ -1,0 +1,12 @@
+{
+  "name": "document-persistent-fragment",
+  "version": "0.0.0",
+  "description": "A WHATWG Proposal",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo 'Run index.html via any server'"
+  },
+  "keywords": [],
+  "author": "Andrea Giammarchi",
+  "license": "ISC"
+}
