@@ -111,6 +111,7 @@ addEventListener(
     console.assert(dpf.textContent === '1453', 'different dpf text');
     document.body.lastChild.replaceWith(dpf);
     console.assert(document.body.textContent.trim() === 'P1453', 'final body text');
+    dpf.append(...nodes);
     document.body.textContent = 'OK';
   },
   {once: true}
