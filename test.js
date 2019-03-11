@@ -33,7 +33,7 @@ addEventListener(
     console.assert(dpf.firstChild === null, 'no firstChild by default');
     console.assert(dpf.lastChild === null, 'no lastChild by default');
     console.assert(dpf.hasChildNodes() === false, 'no childNodes by default');
-    console.assert(dpf.compareDocumentPosition(previous) === 37, 'correct compareDocumentPosition');
+    console.assert(30 < dpf.compareDocumentPosition(previous), 'correct compareDocumentPosition');
     console.assert(dpf.contains(nodes[0]) === false, 'no nodes contained');
     dpf.append(nodes[0]);
     console.assert(dpf.contains(nodes[0]) === true, 'some nodes contained');

@@ -1,6 +1,6 @@
 import poly from './poly.js';
 
-const {freeze} = Object;
+const {freeze, setPrototypeOf} = Object;
 const childNodes = new WeakMap;
 const getText = node => node.textContent;
 const isElement = node => node instanceof Element;
@@ -16,12 +16,17 @@ const isVisible = node => {
   return false;
 };
 
+class Bug extends DocumentFragment {}
+const shenanigans = !(new Bug instanceof Bug);
+
 export default class DocumentPersistentFragment extends DocumentFragment {
 
   // DocumentFragment overrides
   constructor() {
     super();
     childNodes.set(this, []);
+    if (shenanigans)
+      return setPrototypeOf(this, DocumentPersistentFragment.prototype);
   }
   get children() {
     return childNodes.get(this).filter(isElement);
